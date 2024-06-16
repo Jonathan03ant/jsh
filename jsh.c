@@ -1,7 +1,21 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
+#include <sys/wait.h>
+#include <sys/types.h>
 
+char *ReadLine(void){
+	char *line = NULL;
+	ssize_t buffer_size = 0;
+ 
+	if (getline(&line, &buffer_size, stdin) == -1){
+		
 
+	}
+
+}
 
 
 
@@ -15,7 +29,7 @@ int main (int argc, char **argv){
 		// Excute the command
 	// Terminate
 	
-	jsh_lop();
+	jsh_lo();
 
 
 	return EXIT_SUCCESS;
@@ -23,7 +37,7 @@ int main (int argc, char **argv){
 
 
 void jsh_lo(void){
-	//read line, pharse the commmands, then execute the command
+	//read line, pharse the commmands, then execute the command 
 
 	char *line;
 	char **args;
@@ -34,8 +48,16 @@ void jsh_lo(void){
 		line = ReadLine();
 		args = PharseLine();
 		status = Execute();
-
+		
+		free(line);
+		free(args);
 	} while(status);
 
 }
+
+
+
+
+char **PharseLine(char *line){
+};
 
